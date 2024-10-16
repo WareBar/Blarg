@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'styles.css' %}">
+	<title>
+		{% block title %}
+
+			Blargous
+
+		{% endblock %}
+	</title>
+</head>
+<body>
+
+	<nav class="nav-bar">
+		<h1 id="hero">BLARG</h1>
+		<ul class="nav-items">
+			<li><a href="{% url 'home' %}">home</a></li>
+			<li><a href="{% url 'about' %}">about</a></li>
+			<li><a href="{% url 'POST:list' %}">post</a></li>
+
+			{% if user.is_authenticated %}
+				{# <li><a href="#">{{user}}</a></li> #}
+				<li>
+					<div id="userPanel">
+						<p>{{user}}</p>
+					</div>
+				</li>
+
+				<li>
+					<div id="userControl">
+						<form action="{% url 'USER:logout' %}" method="post">
+							<p>{{user}}</p>
+							{% csrf_token %}
+							<button>Logout</button>
+						</form>
+					</div>
+				</li>
+
+			{% else %}
+				<li><a href="{% url 'USER:login' %}">login</a></li>
+			{% endif %}
+
+
+
+		</ul>
+	</nav>
+
+	<main>
+		{% block content %}		
+		{% endblock %}
+	</main>
+	
+</body>
+
+<script type="text/javascript">
+	
+
+	let indicator = 0;
+
+	let userPanel = document.getElementById('userPanel');
+
+	userPanel.addEventListener("click", function(){
+		console.log(indicator)
+		indicator += 1;
+		let userControl = document.getElementById('userControl');
+		
+
+		if(indicator%2===0){
+			console.log("show panel")
+			userControl.style.opacity = "0";
+		}
+		else{
+			console.log("hide panel")
+			userControl.style.opacity = "1";
+		}
+
+	})
+
+</script>
+
+
+</html>

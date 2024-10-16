@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+
+{% block title %}
+
+	Login | Blarg
+
+{% endblock %}
+
+
+{% block content %}
+
+
+	<section class="userForm">
+		
+		<h1>Login User</h1>
+		
+		<form action="" method='post'>
+
+		    {% csrf_token %}
+		    {{form}}
+		    <button>Login</button>
+		</form>
+
+		<pre>Not yet registerd? Register <a href="{% url 'USER:register' %}">here</a></pre>
+
+	</section>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load	static %}
+
+{% block title %}
+	Home | Blarg
+{% endblock %}
+
+
+
+{% block content %}
+
+	<section id="about">
+		<h2 class="mark">
+			Blarg: Your Voice, Your World
+		</h2>
+
+		<div class="description">
+			<div class="logoFrame">
+				<img src="{% static 'about-banner.webp' %}" alt="banner-about">
+			</div>
+			<p>
+				Blarg is a digital platform dedicated to fostering freedom of expression and inspiring individuals to find their 
+				authentic voice. Through thought-provoking articles, engaging discussions, and inspiring stories, we empower 
+				our readers to challenge the status quo, explore diverse perspectives, and create positive change. Whether 
+				you're a seasoned writer or just starting out, Blarg provides a space for everyone to share their unique ideas 
+				and connect with a like-minded community. Join us on this journey of self-discovery and collective growth as we 
+				celebrate the power of human expression. 
+			</p>
+		</div>
+
+	</section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load	static %}
+
+{% block title %}
+	Home | Blarg
+{% endblock %}
+
+
+
+{% block content %}
+
+	<section id="home">
+		
+		<div class="header">
+			<h2>
+				<span>IGNITE YOUR</span>
+				<span>INNER <span class="brandWord">BLARG</span></span>
+				<span>BLARGOUS</span>
+			</h2>
+
+			<div class="banner">
+				<img src="{% static 'banner.png' %}" alt="banner for header">
+			</div>
+		</div>
+		
+	</section>
+
+
+{% endblock %}

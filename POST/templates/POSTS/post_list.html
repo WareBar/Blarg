@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% load	static %}
+
+{% block title %}
+	Articles | Blarg
+{% endblock %}
+
+
+
+{% block content %}
+	
+	<section id="post-list">
+
+
+		{% if user.is_authenticated %}
+		<div class="create-post post-item">
+			<a href="{% url 'POST:new' %}">What's on your mind?</a>
+		</div>
+		{% endif %}
+
+
+
+		{% for post in Posts %}
+
+			<article class="post-item">
+				<div class="post-banner">
+					<img src="{{post.banner.url}}" alt="banner picture">
+				</div>
+
+				<div class="post-content">
+					<div class="post-details">
+						<div class="userProfile">
+							<img class="userProfile" src="{{post.banner.url}}" alt="profile picture">	
+						</div>
+						<p>
+							<span>@{{post.author}}</span>
+							<span>
+								<b>
+								{{post.posted_at}}
+								</b>
+							</span>
+						</p>
+					</div>
+
+					<div class="content">
+						<h2><a href="{% url 'POST:page' post.slug %}">{{post.title}}</a></h2>
+						<p>
+							{{post.content}}
+						</p>
+					</div>
+				</div>
+
+			</article>
+
+		{% endfor %}
+
+
+	</section>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Create Post | Blarg
+{% endblock %}
+
+{% block content %}
+
+	<section id="post-new">
+		<form action="" method="post" enctype="multipart/form-data">
+
+			{% csrf_token %}
+			<h2>Create New Post</h2>
+
+			{{form}}
+
+			<button>Post</button>
+			
+		</form>
+	</section>
+
+
+{% endblock %}

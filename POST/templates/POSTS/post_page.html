@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+
+	{{specificPost.title}} | Blarg
+
+{% endblock %}
+
+
+{% block content %}
+
+	<section id="post-page">
+
+
+		<div class="post-content">
+			<h1>{{specificPost.title}}</h1>
+			<div class="header">
+				<div class="head">
+					<img src="{{specificPost.banner.url}}" alt="header banner">
+				</div>
+				<p>
+					<span>Author: {{post.author}}</span>
+					<span>{{specificPost.posted_at}}</span>
+				</p>
+			</div>
+
+
+			<p class="page-content">
+				{{specificPost.content}}
+			</p>
+
+
+		</div>
+
+
+	</section>
+
+{% endblock %}
